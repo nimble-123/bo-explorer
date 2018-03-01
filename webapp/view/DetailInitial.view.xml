@@ -1,0 +1,273 @@
+<mvc:View
+		controllerName="dev.bo-explorer.controller.DetailInitial"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns:custom="dev.bo-explorer.controls">
+
+	<Page showHeader="false">
+		<l:BlockLayout>
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell
+						class="sapUiNoContentPadding sapUiDemokitLandingImageCell sapUiNoContentPadding">
+					<Image
+						id="phoneImage"
+						src="images/API_ref_S_cropped.jpg"
+						width="100%"
+						densityAware="false"
+						class="landingImage"
+						load="handleLandingImageLoad"
+						visible="{device>/system/phone}"/>
+					<Image
+						src="images/API_ref_M_and_L_cropped.jpg"
+						width="100%"
+						class="landingImage"
+						densityAware="false"
+						load="handleLandingImageLoad"
+						visible="{=!${device>/system/phone}}"/>
+
+					<Text id="landingImageHeadline"
+						class="sapUiDocumentationApiHeaderText sapUiDocumentationApiHeaderTitleText"
+						text="Business Object Explorer"
+						width="100%"
+						textAlign="Left"/>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell
+						title="Features"
+						class="sapUiDemokitLandingBlockHeadline"
+						backgroundColorSet="ColorSet9"
+						backgroundColorShade="ShadeA"/>
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell
+						width="2"
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeA">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text="Main Controls"
+								href="#/api/sap.m"/>
+						<Text
+								text="Responsive controls for touch-enabled devices and desktop browsers"
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text="Namespace: sap.m"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeB">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeD">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeC">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeB">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeA"
+						width="2">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeD"
+						width="2">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeB"
+						width="2">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/sap.ui.model"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow visible="{= !${versionData>/isOpenUI5}}">
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeA"
+						width="2">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeC">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+						class="largeCell"
+						backgroundColorSet="ColorSet11"
+						backgroundColorShade="ShadeD">
+					<l:VerticalLayout
+							width="100%">
+						<custom:TitleLink
+								level="H1"
+								titleStyle="H1"
+								text=""
+								href="#/api/sap.viz"/>
+						<Text
+								text=""
+								class="sapUiSmallMarginBottom"/>
+						<Label
+								text=""/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+
+
+			</l:BlockLayoutRow>
+
+			<l:BlockLayoutRow>
+				<core:Fragment id="footerFragment" fragmentName="dev.bo-explorer.view.Footer" type="XML" />
+			</l:BlockLayoutRow>
+
+		</l:BlockLayout>
+	</Page>
+</mvc:View>

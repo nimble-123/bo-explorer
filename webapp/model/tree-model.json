@@ -1,0 +1,39 @@
+[{
+	text: "Node - 1"
+}, {
+	text: "Node - 2",
+	nodes: [{
+		text: "Node - 1 - 1"
+	}, {
+		text: "Node - 2 - 2",
+		nodes: [{
+			text: "Node - 1 - 1 - 1"
+		}, {
+			text: "Node - 2 - 2 - 2",
+			nodes: [{
+				text: "Node - 1 - 1 - 1 - 1"
+			}, {
+				text: "Node - 2 - 2 - 2 - 2",
+				nodes: [{
+					text: "Node - 1 - 1 - 1 - 1 - 1"
+				}, {
+					text: "Node - 2 - 2 - 2 - 2 - 2",
+					nodes: [{
+						text: "Node - 1 - 1 - 1 - 1 - 1 - 1"
+					}, {
+						text: "Node - 2 - 2 - 2 - 2 - 2 - 2",
+						nodes: [{
+							text: "Node - 1 - 1 - 1 - 1 - 1 - 1 - 1"
+						}, {
+							text: "Node - 2 - 2 - 2 - 2 - 2 - 2 - 2",
+							nodes: [{
+								text: "Last node",
+								dummy: false
+							}]
+						}]
+					}]
+				}]
+			}]
+		}]
+	}]
+}]
