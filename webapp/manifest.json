@@ -1,20 +1,33 @@
 {
-	"_version": "1.8.0",
+	"_version": "1.5.0",
 	"sap.app": {
 		"id": "dev.bo-explorer",
 		"type": "application",
+		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
-		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/SAP/ZBO_EXP_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.44.7"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
-			"icon": "",
+			"icon": "sap-icon://detail-view",
 			"favIcon": "",
 			"phone": "",
 			"phone@2": "",
@@ -30,7 +43,6 @@
 			"sap_belize"
 		]
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "dev.bo-explorer.view.App",
@@ -74,6 +86,14 @@
 				"settings": {
 					"bundleName": "dev.bo-explorer.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
 			}
 		},
 		"resources": {
@@ -86,39 +106,59 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "dev.bo-explorer.view",
-				"controlId": "splitApp",
+				"controlId": "idAppControl",
 				"controlAggregation": "detailPages",
 				"bypassed": {
-					"target": ["welcome"]
+					"target": ["master", "notFound"]
 				},
-				"async": true,
-				"clearTarget": false
+				"async": true
 			},
 			"routes": [{
 				"pattern": "",
-				"name": "api",
-				"target": ["master", "detailInitial"]
+				"name": "master",
+				"target": ["detailInitial", "master"]
 			}, {
-				"pattern": "api/{id}/:entityType:/:entityId:",
-				"name": "apiId",
-				"target": ["master", "detail"]
+				"pattern": "BusinessObjects/{objectId}",
+				"name": "object",
+				"target": ["master", "object"]
+			}, {
+				"pattern": "BusinessObjects/{objectId}/Node/{nodeKey}",
+				"name": "node",
+				"target": ["master", "node"]
 			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",
-					"viewLevel": 1,
 					"viewId": "master",
+					"viewLevel": 1,
 					"controlAggregation": "masterPages"
+				},
+				"object": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 2
 				},
 				"detailInitial": {
 					"viewName": "DetailInitial",
 					"viewId": "detailInitial",
 					"viewLevel": 2
 				},
-				"detail": {
-					"viewName": "Detail",
-					"viewId": "detail",
-					"viewLevel": 2
+				"node": {
+					"viewName": "Node",
+					"viewId": "node",
+					"viewLevel": 3
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound"
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"viewId": "detailNoObjectsAvailable"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
 				}
 			}
 		}

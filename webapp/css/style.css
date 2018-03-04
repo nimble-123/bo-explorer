@@ -1185,7 +1185,7 @@ html:not(.sapUiTheme-sap_belize_hcb):not(.sapUiTheme-sap_belize_hcw) .demokitIni
 
 /* define large cell height for s,m,l */
 .sapUiDemokit :not(.sapUiBlockLayoutSizeS) .largeCell {
-	min-height: 13rem;
+	min-height: 12.6rem;
 }
 
 .sapUiDemokit .sapUiBlockLayout.sapUiBlockLayoutSizeM .largeCell {
@@ -1937,6 +1937,36 @@ html:not(.sapUiMedia-Std-Phone) .sapUiParamText.depth-5 {
 	border-right: solid 1px #e5e5e5;
 }
 
+.sapUiTheme-sap_belize_hcb .sapUiDocLightTable .head,
+.sapUiTheme-sap_belize_hcb .sapUiDocLightTable .row {
+	background-color: #000000;
+	border-bottom: solid 1px #ffffff;
+	border-left: solid 1px #ffffff;
+	border-right: solid 1px #ffffff;
+}
+
+.sapUiTheme-sap_belize_hcb .sapUiDocLightTable .head {
+	border-top: 1px solid #ffffff;
+	border-bottom: 0.125rem solid #ffffff;
+}
+
+.sapUiTheme-sap_belize_hcw .sapUiDocLightTable .head,
+.sapUiTheme-sap_belize_hcw .sapUiDocLightTable .row {
+	background-color: #ffffff;
+	border-bottom: solid 1px #000000;
+	border-left: solid 1px #000000;
+	border-right: solid 1px #000000;
+}
+
+.sapUiTheme-sap_belize_hcw .sapUiDocLightTable .head {
+	border-top: 1px solid #000000;
+	border-bottom: 0.125rem solid #000000;
+}
+
 /*
  * End of DemokitLightTable CSS
  */
+ 
+ .devMasterPage {
+     background-color: #3b4c5b;
+ }

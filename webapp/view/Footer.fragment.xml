@@ -23,7 +23,7 @@
 								class="demokitInitialPagesBrightLink"
 								text="License"
 								href="LICENSE.txt"
-								visible="{versionData>/isOpenUI5}"
+								visible="true"
 								target="_blank"/>
 					</items>
 				</FlexBox>

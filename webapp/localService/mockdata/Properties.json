@@ -1,0 +1,73 @@
+[{
+	"NodeKey": "4302cbe0-06dd-46aa-9cd4-b6555793a310",
+	"ParentKey": "bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3",
+	"Name": "SemanticKey",
+	"DataElement": "DE_Semantic_Key",
+	"DataDomain": "DOM_Semantic_Key",
+	"DataType": "NUMC",
+	"Length": "13",
+	"AutoIncrement": true,
+	"Enabled": true,
+	"EnabledFinal": false,
+	"ReadOnly": false,
+	"ReadOnlyFinal": false,
+	"Mandatory": true,
+	"MandatoryFinal": false,
+	"__metadata": {
+		"uri": "Properties(guid'4302cbe0-06dd-46aa-9cd4-b6555793a310')",
+		"type": "ZBO_EXP_SRV.Property"
+	},
+	"To_Node": {
+		"__deferred": {
+			"uri": "Properties(guid'4302cbe0-06dd-46aa-9cd4-b6555793a310')/To_Node"
+		}
+	}
+}, {
+	"NodeKey": "cdc19e81-fbbe-4f70-ad91-e8802adf9e47",
+	"ParentKey": "bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3",
+	"Name": "Name",
+	"DataElement": "DE_Name",
+	"DataDomain": "DOM_Name",
+	"DataType": "String",
+	"Length": "64",
+	"AutoIncrement": false,
+	"Enabled": true,
+	"EnabledFinal": false,
+	"ReadOnly": false,
+	"ReadOnlyFinal": false,
+	"Mandatory": false,
+	"MandatoryFinal": false,
+	"__metadata": {
+		"uri": "Properties(guid'cdc19e81-fbbe-4f70-ad91-e8802adf9e47')",
+		"type": "ZBO_EXP_SRV.Property"
+	},
+	"To_Node": {
+		"__deferred": {
+			"uri": "Properties(guid'cdc19e81-fbbe-4f70-ad91-e8802adf9e47')/To_Node"
+		}
+	}
+}, {
+	"NodeKey": "2895d4c5-4b1a-48a9-8f83-9348340b92b7",
+	"ParentKey": "4cd02350-1624-42bb-b8bc-4d11c71a899d",
+	"Name": "SemanticKey",
+	"DataElement": "DE_Semantic_Key",
+	"DataDomain": "DOM_Semantic_Key",
+	"DataType": "NUMC",
+	"Length": "13",
+	"AutoIncrement": true,
+	"Enabled": true,
+	"EnabledFinal": false,
+	"ReadOnly": false,
+	"ReadOnlyFinal": false,
+	"Mandatory": true,
+	"MandatoryFinal": false,
+	"__metadata": {
+		"uri": "Properties(guid'2895d4c5-4b1a-48a9-8f83-9348340b92b7')",
+		"type": "ZBO_EXP_SRV.Property"
+	},
+	"To_Node": {
+		"__deferred": {
+			"uri": "Properties(guid'2895d4c5-4b1a-48a9-8f83-9348340b92b7')/To_Node"
+		}
+	}
+}]

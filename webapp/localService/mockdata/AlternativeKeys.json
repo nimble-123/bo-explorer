@@ -1,0 +1,39 @@
+[{
+	"NodeKey": "949de820-f7dd-4c70-97f4-ca88a90a086b",
+	"ParentKey": "bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3",
+	"Name": "SemanticKey",
+	"Uniqueness": "Uniqueness 1",
+	"__metadata": {
+		"uri": "AlternativeKeys(guid'b4d28e25-ac97-43fc-a6d2-a8de837b4d16')",
+		"type": "ZBO_EXP_SRV.AlternativeKey"
+	},
+	"To_Node": {
+		"__deferred": {
+			"uri": "AlternativeKeys(guid'b4d28e25-ac97-43fc-a6d2-a8de837b4d16')/To_Node"
+		}
+	},
+	"Fields": {
+		"__deferred": {
+			"uri": "AlternativeKeys(guid'b4d28e25-ac97-43fc-a6d2-a8de837b4d16')/Fields"
+		}
+	}
+}, {
+	"NodeKey": "05f2eda2-28bb-4d46-ab27-a06d5a1ee805",
+	"ParentKey": "4cd02350-1624-42bb-b8bc-4d11c71a899d",
+	"Name": "SemanticKey",
+	"Uniqueness": "Uniqueness 2",
+	"__metadata": {
+		"uri": "AlternativeKeys(guid'ca78b7cb-20d0-4c82-9aa3-0454e810fba8')",
+		"type": "ZBO_EXP_SRV.AlternativeKey"
+	},
+	"To_Node": {
+		"__deferred": {
+			"uri": "AlternativeKeys(guid'ca78b7cb-20d0-4c82-9aa3-0454e810fba8')/To_Node"
+		}
+	},
+	"Fields": {
+		"__deferred": {
+			"uri": "AlternativeKeys(guid'ca78b7cb-20d0-4c82-9aa3-0454e810fba8')/Fields"
+		}
+	}
+}]

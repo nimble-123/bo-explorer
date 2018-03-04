@@ -1,0 +1,40 @@
+[{
+	"NodeKey": "00a4c48c-0dfc-4507-abc6-9b54a431b788",
+	"Name": "BO Name 1",
+	"Description": "BO Description 1",
+	"__metadata": {
+		"uri": "BusinessObjects(guid'00a4c48c-0dfc-4507-abc6-9b54a431b788')",
+		"type": "ZBO_EXP_SRV.BusinessObject"
+	},
+	"Nodes": {
+		"__deferred": {
+			"uri": "BusinessObjects(guid'00a4c48c-0dfc-4507-abc6-9b54a431b788')/Nodes"
+		}
+	}
+}, {
+	"NodeKey": "f3e90896-0a5e-4c86-86ea-cf9424f75486",
+	"Name": "BO Name 2",
+	"Description": "BO Description 2",
+	"__metadata": {
+		"uri": "BusinessObjects(guid'f3e90896-0a5e-4c86-86ea-cf9424f75486')",
+		"type": "ZBO_EXP_SRV.BusinessObject"
+	},
+	"Nodes": {
+		"__deferred": {
+			"uri": "BusinessObjects(guid'f3e90896-0a5e-4c86-86ea-cf9424f75486')/Nodes"
+		}
+	}
+}, {
+	"NodeKey": "3de340d6-7800-412b-9f0c-22f5003d8c86",
+	"Name": "BO Name 3",
+	"Description": "BO Description 3",
+	"__metadata": {
+		"uri": "BusinessObjects(guid'3de340d6-7800-412b-9f0c-22f5003d8c86')",
+		"type": "ZBO_EXP_SRV.BusinessObject"
+	},
+	"Nodes": {
+		"__deferred": {
+			"uri": "BusinessObjects(guid'3de340d6-7800-412b-9f0c-22f5003d8c86')/Nodes"
+		}
+	}
+}]

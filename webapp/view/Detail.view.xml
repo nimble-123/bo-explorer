@@ -1,12 +1,118 @@
-<mvc:View xmlns="sap.m"
-		  xmlns:mvc="sap.ui.core.mvc"
-		  controllerName="dev.bo-explorer.controller.Detail">
-	<Page
-			id="detailPageContainer"
-			showHeader="false"
-			showSubHeader="false"
-			showFooter="false"
-			busyIndicatorDelay="0"
-			busy="true"
-			class="apiDetailPage" />
+<mvc:View controllerName="dev.bo-explorer.controller.Detail" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout" xmlns:custom="dev.bo-explorer.controls" xmlns:form="sap.ui.layout.form">
+	<m:Page id="page" showHeader="false" showSubHeader="false" showFooter="false" class="apiDetailPage" navButtonPress="onNavBack"
+		showNavButton="{device>/system/phone}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<m:content>
+			<ObjectPageLayout id="detailObjectPage" enableLazyLoading="true" showAnchorBarPopover="true" upperCaseAnchorBar="false"
+				busyIndicatorDelay="0">
+				<headerTitle>
+					<ObjectPageHeader id="title" objectTitle="{Name}" objectSubtitle="{Description}">
+						<actions>
+						    <ObjectPageHeaderActionButton id="nodeBackToObject" tooltip="Back to business object" press="onNavBack" icon="sap-icon://nav-back"/>
+							<ObjectPageHeaderActionButton id="detailBackToSearch" text="Back to search results" hideIcon="true" hideText="false" press="backToSearch"
+								visible="false"/>
+						</actions>
+					</ObjectPageHeader>
+				</headerTitle>
+				<headerContent>
+					<layout:Grid defaultSpan="L4 M6 S12" class="sapUiNoMargin" hSpacing="0">
+						<layout:VerticalLayout>
+							<m:ObjectStatus title="Last changed by" text="nlsltz"/>
+							<m:ObjectStatus title="Last changed at" text="12.34.5678"/>
+						</layout:VerticalLayout>
+						<m:Text width="200px" text="About text of business object"/>
+						<layout:VerticalLayout width="98%" id="headerColumn0"/>
+						<layout:VerticalLayout width="100%" id="headerColumn1" visible="false"/>
+						<layout:VerticalLayout width="100%" id="headerColumn2" visible="false"/>
+					</layout:Grid>
+				</headerContent>
+				<sections>
+					<ObjectPageSection id="overview" title="Overview" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<layout:VerticalLayout width="100%">
+										<form:SimpleForm maxContainerCols="2" layout="ResponsiveLayout" backgroundDesign="Translucent" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+											labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
+											singleContainerFullSize="false" breakpointXL="1440" breakpointL="1024" breakpointM="600" editable="true">
+											<form:content>
+												<core:Title text="Metadata"/>
+												<m:Label text="Created by"/>
+												<m:Text text="nlsltz"/>
+												<m:Label text="Created at"/>
+												<m:Text text="12.34.5678"/>
+												<m:Label text="Owner System"/>
+												<m:Text text="NPL"/>
+												<m:Label text="Version"/>
+												<m:Text text="0.0.1"/>
+												<core:Title text="Used in procces"/>
+												<m:Label text="Process"/>
+												<m:Text text="Research and Development Process"/>
+											</form:content>
+										</form:SimpleForm>
+									</layout:VerticalLayout>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="businessData" title="Business Data" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<layout:VerticalLayout width="100%">
+										<form:SimpleForm maxContainerCols="2" layout="ResponsiveLayout" backgroundDesign="Translucent" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+											labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
+											singleContainerFullSize="false" breakpointXL="1440" breakpointL="1024" breakpointM="600" editable="true">
+											<form:content>
+												<m:Label text="Business Owner"/>
+												<m:Text text="Herr Nils Lutz"/>
+												<m:Label text="Department"/>
+												<m:Text text="Development"/>
+												<m:Label text="Functional Area"/>
+												<m:Text text="Research and Developement"/>
+												<m:Label text="Email"/>
+												<m:Text text="email@address.com"/>
+												<m:Label text="Cost Center"/>
+												<m:Text text="4711 (Research and Development)"/>
+											</form:content>
+										</form:SimpleForm>
+									</layout:VerticalLayout>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="nodes" title="Nodes" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<m:Table items="{ path: 'Nodes' }" class="sapUiSmallMarginTop" selectionChange="onNodesListSelectionChange">
+										<m:columns>
+											<m:Column>
+												<m:Text text="Name"/>
+											</m:Column>
+											<m:Column>
+												<m:Text text="Description"/>
+											</m:Column>
+											<m:Column>
+												<m:Text text="Type"/>
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem vAlign="Middle" type="Navigation" press="onNodesListSelectionChange">
+												<m:cells>
+													<m:ObjectIdentifier title="{Name}"/>
+													<m:Text text="{Description}"/>
+													<m:Text text="{Type}"/>
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</m:content>
+	</m:Page>
 </mvc:View>

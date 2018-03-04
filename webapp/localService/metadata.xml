@@ -1,0 +1,541 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZBO_EXP_SRV" xml:lang="de" sap:schema-version="1">
+			<EntityType Name="BusinessObject" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="255" sap:unicode="false"/>
+				<NavigationProperty Name="Nodes" Relationship="ZBO_EXP_SRV.BusinessObject_To_Nodes" FromRole="FromRole_BusinessObject_To_Nodes"
+					ToRole="ToRole_BusinessObject_To_Nodes"/>
+			</EntityType>
+			<EntityType Name="Node" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="RootKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false"/>
+				<Property Name="Description" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="HierarchyLevel" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="Type" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="CreateEnabled" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="UpdateEnabled" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="DeleteEnabled" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="TextNode" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="PersistentStructure" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="TransientStructure" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="CombinedStructure" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="CombinedTableType" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="DatabaseTable" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="NodeDefaultClass" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="OwnDataAccessClass" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="DataAccessClass" Type="Edm.String" sap:unicode="false"/>
+				<NavigationProperty Name="To_BusinessObject" Relationship="ZBO_EXP_SRV.BusinessObject_To_Nodes" FromRole="ToRole_BusinessObject_To_Nodes"
+					ToRole="FromRole_BusinessObject_To_Nodes"/>
+				<NavigationProperty Name="AlternativeKeys" Relationship="ZBO_EXP_SRV.Node_To_AltKeys" FromRole="FromRole_Node_To_AltKeys"
+					ToRole="ToRole_Node_To_AltKeys"/>
+				<NavigationProperty Name="Properties" Relationship="ZBO_EXP_SRV.Node_To_Properties" FromRole="FromRole_Node_To_Properties"
+					ToRole="ToRole_Node_To_Properties"/>
+				<NavigationProperty Name="Associations" Relationship="ZBO_EXP_SRV.Node_To_Associations" FromRole="FromRole_Node_To_Associations"
+					ToRole="ToRole_Node_To_Associations"/>
+				<NavigationProperty Name="Queries" Relationship="ZBO_EXP_SRV.Node_To_Queries" FromRole="FromRole_Node_To_Queries"
+					ToRole="ToRole_Node_To_Queries"/>
+				<NavigationProperty Name="Actions" Relationship="ZBO_EXP_SRV.Node_To_Actions" FromRole="FromRole_Node_To_Actions"
+					ToRole="ToRole_Node_To_Actions"/>
+				<NavigationProperty Name="Determinations" Relationship="ZBO_EXP_SRV.Node_To_Determinations" FromRole="FromRole_Node_To_Determinations"
+					ToRole="ToRole_Node_To_Determinations"/>
+				<NavigationProperty Name="Validations" Relationship="ZBO_EXP_SRV.Node_To_Validations" FromRole="FromRole_Node_To_Validations"
+					ToRole="ToRole_Node_To_Validations"/>
+				<NavigationProperty Name="Authorization" Relationship="ZBO_EXP_SRV.Node_To_Authorizations" FromRole="FromRole_Node_To_Authorizations"
+					ToRole="ToRole_Node_To_Authorizations"/>
+				<NavigationProperty Name="Nodes" Relationship="ZBO_EXP_SRV.Node_To_Children" FromRole="FromRole_Node_To_Children"
+					ToRole="ToRole_Node_To_Children"/>
+				<NavigationProperty Name="To_ParentNode" Relationship="ZBO_EXP_SRV.Node_To_Children" FromRole="FromRole_Node_To_Children"
+					ToRole="ToRole_Node_To_Children"/>
+			</EntityType>
+			<EntityType Name="Property" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false"/>
+				<Property Name="DataElement" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="DataDomain" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="DataType" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="Length" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="AutoIncrement" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="Enabled" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="EnabledFinal" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="ReadOnly" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="ReadOnlyFinal" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="Mandatory" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="MandatoryFinal" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Properties" FromRole="ToRole_Node_To_Properties"
+					ToRole="FromRole_Node_To_Properties"/>
+			</EntityType>
+			<EntityType Name="Association" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="Multiplicity" Type="Edm.String" MaxLength="4" sap:unicode="false"/>
+				<Property Name="TargetNode" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="ImplementationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="FilterStructure" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Associations" FromRole="ToRole_Node_To_Associations"
+					ToRole="FromRole_Node_To_Associations"/>
+			</EntityType>
+			<EntityType Name="Query" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="255" sap:unicode="false"/>
+				<Property Name="Category" Type="Edm.String" MaxLength="32" sap:unicode="false"/>
+				<Property Name="ImplementationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="FilterStructure" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="ResultType" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="ResultTypeTable" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Queries" FromRole="ToRole_Node_To_Queries"
+					ToRole="FromRole_Node_To_Queries"/>
+			</EntityType>
+			<EntityType Name="AlternativeKey" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="Uniqueness" Type="Edm.String" MaxLength="32" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_AltKeys" FromRole="ToRole_Node_To_AltKeys"
+					ToRole="FromRole_Node_To_AltKeys"/>
+				<NavigationProperty Name="Fields" Relationship="ZBO_EXP_SRV.AltKey_To_AltKeyFields" FromRole="FromRole_AltKey_To_AltKeyFields"
+					ToRole="ToRole_AltKey_To_AltKeyFields"/>
+			</EntityType>
+			<EntityType Name="Determination" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="255" sap:unicode="false"/>
+				<Property Name="ImplementationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="Category" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Determinations" FromRole="ToRole_Node_To_Determinations"
+					ToRole="FromRole_Node_To_Determinations"/>
+				<NavigationProperty Name="Triggers" Relationship="ZBO_EXP_SRV.Determination_To_Triggers" FromRole="FromRole_Determination_To_Triggers"
+					ToRole="ToRole_Determination_To_Triggers"/>
+				<NavigationProperty Name="Dependancies" Relationship="ZBO_EXP_SRV.Determination_To_Dependencies"
+					FromRole="FromRole_Determination_To_Dependencies" ToRole="ToRole_Determination_To_Dependencies"/>
+			</EntityType>
+			<EntityType Name="Action" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="255" sap:unicode="false"/>
+				<Property Name="ImplementationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="InstanceMultiplicity" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="ParameterStructure" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="ExportingType" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Actions" FromRole="ToRole_Node_To_Actions"
+					ToRole="FromRole_Node_To_Actions"/>
+			</EntityType>
+			<EntityType Name="Validation" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="ImplementationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="Category" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Validations" FromRole="ToRole_Node_To_Validations"
+					ToRole="FromRole_Node_To_Validations"/>
+				<NavigationProperty Name="Triggers" Relationship="ZBO_EXP_SRV.Validation_To_Triggers" FromRole="FromRole_Validation_To_Triggers"
+					ToRole="ToRole_Validation_To_Triggers"/>
+			</EntityType>
+			<EntityType Name="Authorization" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="NodeHasOwnCheck" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="OwnAuthorizationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="AuthorizationClass" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Node" Relationship="ZBO_EXP_SRV.Node_To_Authorizations" FromRole="ToRole_Node_To_Authorizations"
+					ToRole="FromRole_Node_To_Authorizations"/>
+				<NavigationProperty Name="AuthorizationObjects" Relationship="ZBO_EXP_SRV.Authorization_To_AuthObject"
+					FromRole="FromRole_Authorization_To_AuthObject" ToRole="ToRole_Authorization_To_AuthObject"/>
+			</EntityType>
+			<EntityType Name="Dependancy" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Node" Type="Edm.String" Nullable="false" MaxLength="64" sap:unicode="false"/>
+				<Property Name="Determination" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<Property Name="Dependency" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_Determination" Relationship="ZBO_EXP_SRV.Determination_To_Dependencies"
+					FromRole="ToRole_Determination_To_Dependencies" ToRole="FromRole_Determination_To_Dependencies"/>
+			</EntityType>
+			<EntityType Name="Trigger" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Node" Type="Edm.String" Nullable="false" sap:unicode="false"/>
+				<Property Name="Association" Type="Edm.String" sap:unicode="false"/>
+				<Property Name="Create" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="Update" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="Delete" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="Load" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<Property Name="Determine" Type="Edm.Boolean" sap:unicode="false" sap:label="Flag"/>
+				<NavigationProperty Name="To_Determination" Relationship="ZBO_EXP_SRV.Determination_To_Triggers" FromRole="ToRole_Determination_To_Triggers"
+					ToRole="FromRole_Determination_To_Triggers"/>
+				<NavigationProperty Name="To_Validation" Relationship="ZBO_EXP_SRV.Validation_To_Triggers" FromRole="ToRole_Validation_To_Triggers"
+					ToRole="FromRole_Validation_To_Triggers"/>
+			</EntityType>
+			<EntityType Name="AuthorizationObject" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" sap:unicode="false"/>
+				<Property Name="Description" Type="Edm.String" sap:unicode="false"/>
+				<NavigationProperty Name="Fields" Relationship="ZBO_EXP_SRV.AuthorizationObject_To_Fields" FromRole="FromRole_AuthorizationObject_To_Fields"
+					ToRole="ToRole_AuthorizationObject_To_Fields"/>
+				<NavigationProperty Name="To_Authorization" Relationship="ZBO_EXP_SRV.Authorization_To_AuthObject"
+					FromRole="ToRole_Authorization_To_AuthObject" ToRole="FromRole_Authorization_To_AuthObject"/>
+			</EntityType>
+			<EntityType Name="Field" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NodeKey"/>
+				</Key>
+				<Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false"/>
+				<Property Name="DefaultValue" Type="Edm.String" MaxLength="64" sap:unicode="false"/>
+				<NavigationProperty Name="To_AuthorizationObject" Relationship="ZBO_EXP_SRV.AuthorizationObject_To_Fields"
+					FromRole="ToRole_AuthorizationObject_To_Fields" ToRole="FromRole_AuthorizationObject_To_Fields"/>
+				<NavigationProperty Name="To_AlternativeKey" Relationship="ZBO_EXP_SRV.AltKey_To_AltKeyFields" FromRole="ToRole_AltKey_To_AltKeyFields"
+					ToRole="FromRole_AltKey_To_AltKeyFields"/>
+			</EntityType>
+			<Association Name="Validation_To_Triggers" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Validation" Multiplicity="1" Role="FromRole_Validation_To_Triggers"/>
+				<End Type="ZBO_EXP_SRV.Trigger" Multiplicity="*" Role="ToRole_Validation_To_Triggers"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Validation_To_Triggers">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Validation_To_Triggers">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AuthorizationObject_To_Fields" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.AuthorizationObject" Multiplicity="1" Role="FromRole_AuthorizationObject_To_Fields"/>
+				<End Type="ZBO_EXP_SRV.Field" Multiplicity="*" Role="ToRole_AuthorizationObject_To_Fields"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AuthorizationObject_To_Fields">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_AuthorizationObject_To_Fields">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Determination_To_Triggers" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Determination" Multiplicity="1" Role="FromRole_Determination_To_Triggers"/>
+				<End Type="ZBO_EXP_SRV.Trigger" Multiplicity="*" Role="ToRole_Determination_To_Triggers"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Determination_To_Triggers">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Determination_To_Triggers">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Determination_To_Dependencies" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Determination" Multiplicity="1" Role="FromRole_Determination_To_Dependencies"/>
+				<End Type="ZBO_EXP_SRV.Dependancy" Multiplicity="*" Role="ToRole_Determination_To_Dependencies"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Determination_To_Dependencies">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Determination_To_Dependencies">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Authorization_To_AuthObject" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Authorization" Multiplicity="1" Role="FromRole_Authorization_To_AuthObject"/>
+				<End Type="ZBO_EXP_SRV.AuthorizationObject" Multiplicity="*" Role="ToRole_Authorization_To_AuthObject"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Authorization_To_AuthObject">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Authorization_To_AuthObject">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AltKey_To_AltKeyFields" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.AlternativeKey" Multiplicity="1" Role="FromRole_AltKey_To_AltKeyFields"/>
+				<End Type="ZBO_EXP_SRV.Field" Multiplicity="*" Role="ToRole_AltKey_To_AltKeyFields"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AltKey_To_AltKeyFields">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_AltKey_To_AltKeyFields">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="BusinessObject_To_Nodes" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.BusinessObject" Multiplicity="1" Role="FromRole_BusinessObject_To_Nodes"/>
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="*" Role="ToRole_BusinessObject_To_Nodes"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_BusinessObject_To_Nodes">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_BusinessObject_To_Nodes">
+						<PropertyRef Name="RootKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_AltKeys" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_AltKeys"/>
+				<End Type="ZBO_EXP_SRV.AlternativeKey" Multiplicity="*" Role="ToRole_Node_To_AltKeys"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_AltKeys">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_AltKeys">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Properties" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Properties"/>
+				<End Type="ZBO_EXP_SRV.Property" Multiplicity="*" Role="ToRole_Node_To_Properties"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Properties">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Properties">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Associations" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Associations"/>
+				<End Type="ZBO_EXP_SRV.Association" Multiplicity="*" Role="ToRole_Node_To_Associations"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Associations">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Associations">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Queries" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Queries"/>
+				<End Type="ZBO_EXP_SRV.Query" Multiplicity="*" Role="ToRole_Node_To_Queries"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Queries">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Queries">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Actions" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Actions"/>
+				<End Type="ZBO_EXP_SRV.Action" Multiplicity="*" Role="ToRole_Node_To_Actions"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Actions">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Actions">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Determinations" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Determinations"/>
+				<End Type="ZBO_EXP_SRV.Determination" Multiplicity="*" Role="ToRole_Node_To_Determinations"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Determinations">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Determinations">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Validations" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Validations"/>
+				<End Type="ZBO_EXP_SRV.Validation" Multiplicity="*" Role="ToRole_Node_To_Validations"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Validations">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Validations">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Authorizations" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Authorizations"/>
+				<End Type="ZBO_EXP_SRV.Authorization" Multiplicity="*" Role="ToRole_Node_To_Authorizations"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Authorizations">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Authorizations">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Node_To_Children" sap:content-version="1">
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="1" Role="FromRole_Node_To_Children"/>
+				<End Type="ZBO_EXP_SRV.Node" Multiplicity="*" Role="ToRole_Node_To_Children"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Node_To_Children">
+						<PropertyRef Name="NodeKey"/>
+					</Principal>
+					<Dependent Role="ToRole_Node_To_Children">
+						<PropertyRef Name="ParentKey"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZBO_EXP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="BusinessObjects" EntityType="ZBO_EXP_SRV.BusinessObject" sap:searchable="true" sap:requires-filter="true"
+					sap:content-version="1"/>
+				<EntitySet Name="Nodes" EntityType="ZBO_EXP_SRV.Node" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="Properties" EntityType="ZBO_EXP_SRV.Property" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="Associations" EntityType="ZBO_EXP_SRV.Association" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="Queries" EntityType="ZBO_EXP_SRV.Query" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="AlternativeKeys" EntityType="ZBO_EXP_SRV.AlternativeKey" sap:searchable="true" sap:requires-filter="true"
+					sap:content-version="1"/>
+				<EntitySet Name="Determinations" EntityType="ZBO_EXP_SRV.Determination" sap:searchable="true" sap:requires-filter="true"
+					sap:content-version="1"/>
+				<EntitySet Name="Actions" EntityType="ZBO_EXP_SRV.Action" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="Validations" EntityType="ZBO_EXP_SRV.Validation" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="Authorizations" EntityType="ZBO_EXP_SRV.Authorization" sap:searchable="true" sap:requires-filter="true"
+					sap:content-version="1"/>
+				<EntitySet Name="Dependancies" EntityType="ZBO_EXP_SRV.Dependancy" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="Triggers" EntityType="ZBO_EXP_SRV.Trigger" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<EntitySet Name="AuthorizationObjects" EntityType="ZBO_EXP_SRV.AuthorizationObject" sap:searchable="true" sap:requires-filter="true"
+					sap:content-version="1"/>
+				<EntitySet Name="Fields" EntityType="ZBO_EXP_SRV.Field" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+				<AssociationSet Name="Determination_To_Triggers_AssocSet" Association="ZBO_EXP_SRV.Determination_To_Triggers" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Determinations" Role="FromRole_Determination_To_Triggers"/>
+					<End EntitySet="Triggers" Role="ToRole_Determination_To_Triggers"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Associations_AssocSet" Association="ZBO_EXP_SRV.Node_To_Associations" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Associations"/>
+					<End EntitySet="Associations" Role="ToRole_Node_To_Associations"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Determinations_AssocSet" Association="ZBO_EXP_SRV.Node_To_Determinations" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Determinations"/>
+					<End EntitySet="Determinations" Role="ToRole_Node_To_Determinations"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Actions_AssocSet" Association="ZBO_EXP_SRV.Node_To_Actions" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Actions"/>
+					<End EntitySet="Actions" Role="ToRole_Node_To_Actions"/>
+				</AssociationSet>
+				<AssociationSet Name="AltKey_To_AltKeyFields_AssocSet" Association="ZBO_EXP_SRV.AltKey_To_AltKeyFields" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="AlternativeKeys" Role="FromRole_AltKey_To_AltKeyFields"/>
+					<End EntitySet="Fields" Role="ToRole_AltKey_To_AltKeyFields"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_AltKeys_AssocSet" Association="ZBO_EXP_SRV.Node_To_AltKeys" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_AltKeys"/>
+					<End EntitySet="AlternativeKeys" Role="ToRole_Node_To_AltKeys"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Properties_AssocSet" Association="ZBO_EXP_SRV.Node_To_Properties" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Properties"/>
+					<End EntitySet="Properties" Role="ToRole_Node_To_Properties"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Authorizations_AssocSet" Association="ZBO_EXP_SRV.Node_To_Authorizations" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Authorizations"/>
+					<End EntitySet="Authorizations" Role="ToRole_Node_To_Authorizations"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Queries_AssocSet" Association="ZBO_EXP_SRV.Node_To_Queries" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Queries"/>
+					<End EntitySet="Queries" Role="ToRole_Node_To_Queries"/>
+				</AssociationSet>
+				<AssociationSet Name="AuthorizationObject_To_Fields_AssocSet" Association="ZBO_EXP_SRV.AuthorizationObject_To_Fields" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="AuthorizationObjects" Role="FromRole_AuthorizationObject_To_Fields"/>
+					<End EntitySet="Fields" Role="ToRole_AuthorizationObject_To_Fields"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Children_AssocSet" Association="ZBO_EXP_SRV.Node_To_Children" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Children"/>
+					<End EntitySet="Nodes" Role="ToRole_Node_To_Children"/>
+				</AssociationSet>
+				<AssociationSet Name="Node_To_Validations_AssocSet" Association="ZBO_EXP_SRV.Node_To_Validations" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Nodes" Role="FromRole_Node_To_Validations"/>
+					<End EntitySet="Validations" Role="ToRole_Node_To_Validations"/>
+				</AssociationSet>
+				<AssociationSet Name="Validation_To_Triggers_AssocSet" Association="ZBO_EXP_SRV.Validation_To_Triggers" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Validations" Role="FromRole_Validation_To_Triggers"/>
+					<End EntitySet="Triggers" Role="ToRole_Validation_To_Triggers"/>
+				</AssociationSet>
+				<AssociationSet Name="Authorization_To_AuthObject_AssocSet" Association="ZBO_EXP_SRV.Authorization_To_AuthObject" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Authorizations" Role="FromRole_Authorization_To_AuthObject"/>
+					<End EntitySet="AuthorizationObjects" Role="ToRole_Authorization_To_AuthObject"/>
+				</AssociationSet>
+				<AssociationSet Name="BusinessObject_To_Nodes_AssocSet" Association="ZBO_EXP_SRV.BusinessObject_To_Nodes" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="BusinessObjects" Role="FromRole_BusinessObject_To_Nodes"/>
+					<End EntitySet="Nodes" Role="ToRole_BusinessObject_To_Nodes"/>
+				</AssociationSet>
+				<AssociationSet Name="Determination_To_Dependencies_AssocSet" Association="ZBO_EXP_SRV.Determination_To_Dependencies" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="Determinations" Role="FromRole_Determination_To_Dependencies"/>
+					<End EntitySet="Dependancies" Role="ToRole_Determination_To_Dependencies"/>
+				</AssociationSet>
+			</EntityContainer>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="http://npl.zeit-consulting.de:50000/sap/opu/odata/SAP/ZBO_EXP_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="http://npl.zeit-consulting.de:50000/sap/opu/odata/SAP/ZBO_EXP_SRV/$metadata"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,241 @@
+[{
+	"NodeKey": "bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3",
+	"RootKey": "00a4c48c-0dfc-4507-abc6-9b54a431b788",
+	"ParentKey": "00000000-0000-0000-0000-000000000000",
+	"BusinessObjectKey": "00a4c48c-0dfc-4507-abc6-9b54a431b788",
+	"Name": "ROOT",
+	"Description": "ROOT Node Description 1",
+	"HierarchyLevel": "HierarchyLevel 0",
+	"Type": "Type 1",
+	"CreateEnabled": true,
+	"UpdateEnabled": true,
+	"DeleteEnabled": false,
+	"TextNode": false,
+	"PersistentStructure": "PersistentStructure 1",
+	"TransientStructure": "TransientStructure 1",
+	"CombinedStructure": "CombinedStructure 1",
+	"CombinedTableType": "CombinedTableType 1",
+	"DatabaseTable": "DatabaseTable 1",
+	"NodeDefaultClass": "NodeDefaultClass 1",
+	"OwnDataAccessClass": true,
+	"DataAccessClass": "DataAccessClass 1",
+	"__metadata": {
+		"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')",
+		"type": "ZBO_EXP_SRV.Node"
+	},
+	"Associations": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Associations"
+		}
+	},
+	"To_BusinessObject": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/To_BusinessObject"
+		}
+	},
+	"Determinations": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Determinations"
+		}
+	},
+	"AlternativeKeys": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/AlternativeKeys"
+		}
+	},
+	"Queries": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Queries"
+		}
+	},
+	"To_ParentNode": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/To_ParentNode"
+		}
+	},
+	"Nodes": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Nodes"
+		}
+	},
+	"Validations": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Validations"
+		}
+	},
+	"Properties": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Properties"
+		}
+	},
+	"Actions": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Actions"
+		}
+	},
+	"Authorization": {
+		"__deferred": {
+			"uri": "Nodes(guid'bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3')/Authorization"
+		}
+	}
+}, {
+	"NodeKey": "ascf2d0f-04b6-4d64-8d8b-e6c122b416a4",
+	"RootKey": "00a4c48c-0dfc-4507-abc6-9b54a431b788",
+	"ParentKey": "bdcf2d0f-04b6-4d64-8d8b-e6c122b416b3",
+	"BusinessObjectKey": "00a4c48c-0dfc-4507-abc6-9b54a431b788",
+	"Name": "AboutText",
+	"Description": "AboutText Node Description 1",
+	"HierarchyLevel": "HierarchyLevel 1",
+	"Type": "Type 1",
+	"CreateEnabled": true,
+	"UpdateEnabled": true,
+	"DeleteEnabled": false,
+	"TextNode": false,
+	"PersistentStructure": "PersistentStructure 1",
+	"TransientStructure": "TransientStructure 1",
+	"CombinedStructure": "CombinedStructure 1",
+	"CombinedTableType": "CombinedTableType 1",
+	"DatabaseTable": "DatabaseTable 1",
+	"NodeDefaultClass": "NodeDefaultClass 1",
+	"OwnDataAccessClass": true,
+	"DataAccessClass": "DataAccessClass 1",
+	"__metadata": {
+		"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')",
+		"type": "ZBO_EXP_SRV.Node"
+	},
+	"Associations": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Associations"
+		}
+	},
+	"To_BusinessObject": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/To_BusinessObject"
+		}
+	},
+	"Determinations": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Determinations"
+		}
+	},
+	"AlternativeKeys": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/AlternativeKeys"
+		}
+	},
+	"Queries": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Queries"
+		}
+	},
+	"To_ParentNode": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/To_ParentNode"
+		}
+	},
+	"Nodes": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Nodes"
+		}
+	},
+	"Validations": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Validations"
+		}
+	},
+	"Properties": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Properties"
+		}
+	},
+	"Actions": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Actions"
+		}
+	},
+	"Authorization": {
+		"__deferred": {
+			"uri": "Nodes(guid'ascf2d0f-04b6-4d64-8d8b-e6c122b416a4')/Authorization"
+		}
+	}
+}, {
+	"NodeKey": "4cd02350-1624-42bb-b8bc-4d11c71a899d",
+	"RootKey": "f3e90896-0a5e-4c86-86ea-cf9424f75486",
+	"ParentKey": "00000000-0000-0000-0000-000000000000",
+	"BusinessObjectKey": "f3e90896-0a5e-4c86-86ea-cf9424f75486",
+	"Name": "ROOT",
+	"Description": "ROOT Node Description 2",
+	"HierarchyLevel": "HierarchyLevel 0",
+	"Type": "Type 2",
+	"CreateEnabled": true,
+	"UpdateEnabled": false,
+	"DeleteEnabled": false,
+	"TextNode": false,
+	"PersistentStructure": "PersistentStructure 2",
+	"TransientStructure": "TransientStructure 2",
+	"CombinedStructure": "CombinedStructure 2",
+	"CombinedTableType": "CombinedTableType 2",
+	"DatabaseTable": "DatabaseTable 2",
+	"NodeDefaultClass": "NodeDefaultClass 2",
+	"OwnDataAccessClass": false,
+	"DataAccessClass": "",
+	"__metadata": {
+		"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')",
+		"type": "ZBO_EXP_SRV.Node"
+	},
+	"Associations": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Associations"
+		}
+	},
+	"To_BusinessObject": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/To_BusinessObject"
+		}
+	},
+	"Determinations": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Determinations"
+		}
+	},
+	"AlternativeKeys": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/AlternativeKeys"
+		}
+	},
+	"Queries": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Queries"
+		}
+	},
+	"To_ParentNode": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/To_ParentNode"
+		}
+	},
+	"Nodes": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Nodes"
+		}
+	},
+	"Validations": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Validations"
+		}
+	},
+	"Properties": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Properties"
+		}
+	},
+	"Actions": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Actions"
+		}
+	},
+	"Authorization": {
+		"__deferred": {
+			"uri": "Nodes(guid'4cd02350-1624-42bb-b8bc-4d11c71a899d')/Authorization"
+		}
+	}
+}]

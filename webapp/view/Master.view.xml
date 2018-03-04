@@ -1,23 +1,34 @@
-<mvc:View controllerName="dev.bo-explorer.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
+<mvc:View controllerName="dev.bo-explorer.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
 	class="sapContrast sapContrastPlus">
-	<Page id="page" enableScrolling="true" showFooter="false" navButtonPress="onNavBack" showNavButton="false"
-		class="sapUiDocumentationMasterPage">
+	<Page id="page" navButtonPress="onNavBack" showNavButton="false" showFooter="false" class="sapUiDocumentationMasterPage devMasterPage">
 		<customHeader>
 			<Toolbar width="100%">
-				<SearchField id="searchField" placeholder="Filter" liveChange="onTreeFilter" class="sapUiDocumentationFilterField"></SearchField>
-				<Button icon="sap-icon://expand-group" press="onTreeExpandAll"></Button>
-				<Button icon="sap-icon://collapse-group" press="onTreeCollapseAll"></Button>
+				<ToolbarSpacer/>
+				<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" placeholder="Filter"
+					width="100%" liveChange="onSearch" class="sapUiDocumentationFilterField"></SearchField>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://drop-down-list" press="handleListSettings"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://action-settings" press="handleSettings"/>
 			</Toolbar>
 		</customHeader>
 		<content>
-			<Tree id="tree" mode="SingleSelectMaster" selectionChange="onNodeSelect"
-				items="{ path: 'treeData>/', sorter : { path : 'name', comparator : '.compareTreeNodes' } }">
-				<StandardTreeItem title="{treeData>text}">
-					<customData>
-						<core:CustomData key="nodeId" value="{treeData>name}"/>
-					</customData>
-				</StandardTreeItem>
-			</Tree>
+			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
+			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
+			<List id="list" items="{ path: '/BusinessObjects', sorter: { path: 'Name', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
+				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
+				updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+				<infoToolbar>
+					<Toolbar id="filterBar" active="true" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
+						<Label id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
+					</Toolbar>
+				</infoToolbar>
+				<items>
+					<StandardListItem title="{Name}" counter="{sampleCount}" type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+						press="onSelectionChange"/>
+				</items>
+			</List>
 		</content>
 	</Page>
 </mvc:View>

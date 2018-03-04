@@ -1,0 +1,251 @@
+<mvc:View controllerName="dev.bo-explorer.controller.Node" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout" xmlns:custom="dev.bo-explorer.controls" xmlns:form="sap.ui.layout.form">
+	<m:Page id="page" showHeader="false" showSubHeader="false" showFooter="false" class="apiDetailPage" navButtonPress="onNavBack"
+		showNavButton="{device>/system/phone}" busy="{nodeView>/busy}" busyIndicatorDelay="{nodeView>/delay}">
+		<m:content>
+			<ObjectPageLayout id="detailObjectPage" enableLazyLoading="true" showAnchorBarPopover="true" upperCaseAnchorBar="false"
+				busyIndicatorDelay="0">
+				<headerTitle>
+					<ObjectPageHeader id="title" objectTitle="{Name}" objectSubtitle="{Description}">
+						<actions>
+							<ObjectPageHeaderActionButton id="nodeBackToObject" tooltip="Back to business object" press="onNavBack" icon="sap-icon://nav-back"/>
+							<ObjectPageHeaderActionButton id="detailBackToSearch" text="Back to search results" hideIcon="true" hideText="false" press="backToSearch"
+								visible="false"/>
+						</actions>
+					</ObjectPageHeader>
+				</headerTitle>
+				<headerContent>
+					<layout:Grid defaultSpan="L4 M6 S12" class="sapUiNoMargin" hSpacing="0">
+						<layout:VerticalLayout>
+							<m:ObjectStatus title="Last changed by" text="Username"/>
+							<m:ObjectStatus title="Last changed at" text="12.34.5678"/>
+						</layout:VerticalLayout>
+						<m:Text width="200px" text="About text of business object"/>
+						<layout:VerticalLayout width="98%" id="headerColumn0"/>
+						<layout:VerticalLayout width="100%" id="headerColumn1" visible="false"/>
+						<layout:VerticalLayout width="100%" id="headerColumn2" visible="false"/>
+					</layout:Grid>
+				</headerContent>
+				<sections>
+					<ObjectPageSection id="overview" title="Overview" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<layout:VerticalLayout width="100%">
+										<form:SimpleForm id="" maxContainerCols="2" layout="ResponsiveLayout" backgroundDesign="Translucent" labelSpanXL="4" labelSpanL="3"
+											labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+											columnsL="2" columnsM="1" singleContainerFullSize="false" breakpointXL="1440" breakpointL="1024" breakpointM="600" editable="true">
+											<form:content>
+												<core:Title text="CRUD Details"/>
+												<m:Label text="CreateEnabled"/>
+												<m:CheckBox selected="{CreateEnabled}" enabled="false"/>
+												<m:Label text="UpdateEnabled"/>
+												<m:CheckBox selected="{UpdateEnabled}" enabled="false"/>
+												<m:Label text="DeleteEnabled"/>
+												<m:CheckBox selected="{DeleteEnabled}" enabled="false"/>
+												<m:Label text="TextNode"/>
+												<m:CheckBox selected="{TextNode}" enabled="false"/>
+												<core:Title text="DDIC Artefacts"/>
+												<m:Label text="PersistentStructure"/>
+												<m:Text text="{PersistentStructure}"/>
+												<m:Label text="TransientStructure"/>
+												<m:Text text="{TransientStructure}"/>
+												<m:Label text="CombinedStructure"/>
+												<m:Text text="{CombinedStructure}"/>
+												<m:Label text="CombinedTableType"/>
+												<m:Text text="{CombinedTableType}"/>
+												<m:Label text="DatabaseTable"/>
+												<m:Text text="{DatabaseTable}"/>
+												<core:Title text="Classes"/>
+												<m:Label text="NodeDefaultClass"/>
+												<m:Text text="{NodeDefaultClass}"/>
+												<m:Label text="OwnDataAccessClass"/>
+												<m:CheckBox selected="{OwnDataAccessClass}" enabled="false"/>
+												<m:Label text="DataAccessClass"/>
+												<m:Text text="{DataAccessClass}"/>
+											</form:content>
+										</form:SimpleForm>
+									</layout:VerticalLayout>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="nodes" title="Nodes" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<m:Table items="{ path: 'Nodes' }" class="sapUiSmallMarginTop" selectionChange="onNodesListSelectionChange">
+										<m:columns>
+											<m:Column>
+												<m:Text text="Name"/>
+											</m:Column>
+											<m:Column>
+												<m:Text text="Description"/>
+											</m:Column>
+											<m:Column>
+												<m:Text text="Type"/>
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem vAlign="Middle" type="Navigation" press="onNodesListSelectionChange">
+												<m:cells>
+													<m:ObjectIdentifier title="{Name}"/>
+													<m:Text text="{Description}"/>
+													<m:Text text="{Type}"/>
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="alternativeKeys" title="Alternative Keys" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'AlternativeKeys'}" columnCount="2" columnTitles="Name,Uniqueness,Fields" class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Text text="{Uniqueness}"/>
+											<m:Text text="To Fields"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="properties" title="Properties" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Properties'}" columnTitles="Name,Data Element,Default Value,AutoIncrement,Description" columnCount="4"
+										class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Link text="{DataElement}" href="#/api/{= ${type}.replace('[]', '') }" enabled="false"/>
+											<m:Text text="{defaultValue}"/>
+											<m:Text text="{AutoIncrement}"/>
+											<m:Text text="{Description}"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="associations" title="Associations" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Associations'}" columnCount="5"
+										columnTitles="Name,Multiplicity,Target Node,Implementation Class,Filter Structure" class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Text text="{Multiplicity}"/>
+											<m:Text text="{TargetNode}"/>
+											<m:Text text="{ImplementationClass}"/>
+											<m:Text text="{FilterStructure}"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="actions" title="Actions" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Actions'}" columnCount="6"
+										columnTitles="Name,Description,ImplementationClass,InstanceMultiplicity,ParameterStructure,ExportingType" class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Text text="{Description}"/>
+											<m:Text text="{ImplementationClass}"/>
+											<m:Text text="{InstanceMultiplicity}"/>
+											<m:Text text="{ParameterStructure}"/>
+											<m:Text text="{ExportingType}"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="determinations" title="Determinations" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Determinations'}" columnCount="6" columnTitles="Name,Description,ImplementationClass,Category"
+										class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Text text="{Description}"/>
+											<m:Text text="{ImplementationClass}"/>
+											<m:Text text="{Category}"/>
+											<m:Text text="To Triggers"/>
+											<m:Text text="To Dependancies"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="validations" title="Validations" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Validations'}" columnCount="4" columnTitles="Name,Description,ImplementationClass,Category"
+										class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Text text="{Description}"/>
+											<m:Text text="{ImplementationClass}"/>
+											<m:Text text="{Category}"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="queries" title="Queries" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Queries'}" columnCount="7"
+										columnTitles="Name,Description,Category,ImplementationClass,FilterStructure,ResultType,ResultTypeTable" class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:Text text="{Description}"/>
+											<m:Text text="{Category}"/>
+											<m:Text text="{ImplementationClass}"/>
+											<m:Text text="{FilterStructure}"/>
+											<m:Text text="{ResultType}"/>
+											<m:Text text="{ResultTypeTable}"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="authorizations" title="Authorizations" titleUppercase="false">
+						<subSections>
+							<custom:ObjectPageSubSection>
+								<custom:blocks>
+									<custom:LightTable rows="{ path : 'Authorization'}" columnCount="5"
+										columnTitles="Name,NodeHasOwnCheck,OwnAuthorizationClass,AuthorizationClass" class="sapUiSmallMarginTop">
+										<custom:Row>
+											<m:Text class="sapUiDocumentationParamBold" text="{Name}"/>
+											<m:CheckBox selected="{NodeHasOwnCheck}" enabled="false"/>
+											<m:Text text="{OwnAuthorizationClass}"/>
+											<m:Text text="{AuthorizationClass}"/>
+											<m:Text text="To AuthorizationObjects"/>
+										</custom:Row>
+									</custom:LightTable>
+								</custom:blocks>
+							</custom:ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</m:content>
+	</m:Page>
+</mvc:View>

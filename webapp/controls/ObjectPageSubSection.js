@@ -9,7 +9,7 @@ sap.ui.define([
 	 * Custom ObjectPageSubSection control which internally does not uses Grid control.
 	 * @extends sap.uxap.ObjectPageSubSection
 	 */
-	var SDKObjectPageSubSection = ObjectPageSubSection.extend("sap.ui.documentation.sdk.controls.ObjectPageSubSection", {
+	var SDKObjectPageSubSection = ObjectPageSubSection.extend("dev.bo-explorer.controls.ObjectPageSubSection", {
 		renderer: "sap.uxap.ObjectPageSubSectionRenderer"
 	});
 

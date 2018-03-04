@@ -1,60 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Business Object Explorer</title>
 
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta charset="UTF-8">
-
-		<title>BO Explorer</title>
-
-		<script id="sap-ui-bootstrap"
-			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+	<!-- Bootstrapping UI5 -->
+	<script id="sap-ui-bootstrap"
+			src="resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_belize"
-			data-sap-ui-xx-waitForTheme="true"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"dev.bo-explorer": "./"}'>
-		</script>
+			data-sap-ui-resourceroots='{"dev.bo-explorer": "."}'
+			data-sap-ui-frameOptions="trusted">
+	</script>
 
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script>
+		sap.ui.require([
+			"sap/m/Page",
+			"sap/ui/core/ComponentContainer"
+		], function (Page, ComponentContainer) {
+			// initialize the UI component
+			new Page({
+				showHeader: false,
+				content: new ComponentContainer({
+					height : "100%",
+					name : "dev"
+				})
+			}).placeAt("content");
+		});
+	</script>
 
-		<script>
-            /*sap.ui.getCore().attachInit(function() {
-                new sap.m.App ({
-                    pages : [ new sap.m.Page({
-                                title : "Business Object Explorer",
-                                enableScrolling : true,
-                                content : [
-                                    new sap.ui.core.ComponentContainer({
-                                        height : "100%",
-                                        name : "dev.bo-explorer"
-                                        settings: {
-                                            id: "dev.bo-explorer"
-                                        }
-                                    })
-                                ]
-                            })
-                        ]
-                }).placeAt("content");
-            });*/
-            
-            sap.ui.require([
-				"sap/m/Page",
-				"sap/ui/core/ComponentContainer"
-			], function (Page, ComponentContainer) {
-				// initialize the UI component
-				new Page({
-					showHeader: false,
-					content: new ComponentContainer({
-						height : "100%",
-						name : "dev.bo-explorer"
-					})
-				}).placeAt("content");
-			});
-		</script>
-	</head>
+</head>
 
-	<body class="sapUiBody" id="content" role="application">
-	</body>
-
+<!-- UI Content -->
+<body class="sapUiBody" id="content" role="application">
+</body>
 </html>
